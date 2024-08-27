@@ -38,12 +38,21 @@ const translationEntries = Object.entries(translations);
 
 // Startet das Quiz
 function startQuiz() {
-  rl.question("Möchten Sie von Englisch nach Deutsch (E) oder von Deutsch nach Englisch (D) übersetzen? \nAntworten Sie mit 'E' oder 'D': ", userInput => {
-    if (userInput.toLowerCase() === 'd') {
-      isEnglishToGerman = false;
-    }
-    askQuestion();
-  });
+  
+    rl.question("Möchten Sie von Englisch nach Deutsch (E) oder von Deutsch nach Englisch (D) übersetzen? \nAntworten Sie mit 'E' oder 'D': ", userInput => {
+      if (userInput.toLowerCase() === 'd') {
+        isEnglishToGerman = false;
+        askQuestion();
+      } else if (userInput.toLowerCase() === 'e') {
+        isEnglishToGerman = true;
+        askQuestion();
+      } else {
+        console.log("---------------");
+        console.log("Bitte geben Sie 'E', 'e' oder 'D', 'd' ein.");
+        startQuiz();
+      }
+    });
+  
 }
 
 // Erstellt ein neues Quiz basierend auf früheren Fehlern
