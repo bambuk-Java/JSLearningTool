@@ -9,23 +9,23 @@ let right = 0;
 let wrong = 0;
 const wrongAttempts = [];
 let wrongAttemptsDetails = {};
-let isEnglishToGerman = true;  
+let isEnglishToGerman = true;
 
 // Übersetzungstabellen für Sätze
 const translations = {
-  "Andeo develops mobile apps": "Andeo entwickelt mobile Apps.",
-  "Andeo offers IT-services": "Andeo bietet IT-Dienstleistungen an.",
-  "Andeo is located in Winterthur": "Andeo befindet sich in Winterthur.",
-/*"The company was founded in 2005": "Das Unternehmen wurde 2005 gegründet.",
-"Andeo specializes in web design": "Andeo ist auf Webdesign spezialisiert.",
-"Andeo offers remote support": "Andeo bietet Fernsupport an.",
-"Andeo helps with infrastructure": "Andeo hilft bei der Infrastruktur.",
-"Their office is at Technikumstrasse": "Ihr Büro befindet sich in der Technikumstrasse.",
-"Andeo creates customized solutions": "Andeo erstellt massgeschneiderte Lösungen.",
-"Andeo works with Android and iOS": "Andeo arbeitet mit Android und iOS.",
-"Andeo provides cloud services": "Andeo bietet Cloud-Dienste an.",
-"Andeo focuses on data security": "Andeo legen Wert auf Datensicherheit.",
-"Andeo maintains complex systems": "Andeo warten komplexe Systeme.",*/
+  "Andeo develops mobile apps.": "Andeo entwickelt mobile Apps.",
+  "Andeo offers IT-services.": "Andeo bietet IT-Dienstleistungen an.",
+  "Andeo is located in Winterthur.": "Andeo befindet sich in Winterthur.",
+  "The company was founded in 2005.": "Das Unternehmen wurde 2005 gegründet.",
+  "Andeo specializes in web design.": "Andeo ist auf Webdesign spezialisiert.",
+  "Andeo offers remote support.": "Andeo bietet Fernsupport an.",
+  "Andeo helps with infrastructure.": "Andeo hilft bei der Infrastruktur.",
+  "Their office is at Technikumstrasse.": "Ihr Büro befindet sich in der Technikumstrasse.",
+  "Andeo creates customized solutions.": "Andeo erstellt massgeschneiderte Lösungen.",
+  "Andeo works with Android and iOS.": "Andeo arbeitet mit Android und iOS.",
+  "Andeo provides cloud services.": "Andeo bietet Cloud-Dienste an.",
+  "Andeo focuses on data security.": "Andeo legen Wert auf Datensicherheit.",
+  "Andeo maintains complex systems.": "Andeo warten komplexe Systeme."
 };
 
 const responses = [
@@ -52,7 +52,6 @@ function startQuiz() {
         startQuiz();
       }
     });
-  
 }
 
 // Erstellt ein neues Quiz basierend auf früheren Fehlern
@@ -97,15 +96,14 @@ function getKeyByValue(object, value) {
 // Zeigt die Ergebnisauswertung und fragt, ob das Quiz neu gestartet werden soll
 function displayResultsAndAskForRestart() {
   console.log(`Sie hatten ${right} Antworten richtig und ${wrong} falsch.`);
-  console.log(`Index der falschen Versuche: ${wrongAttempts}`);
   
   const responseIndex = wrong === 0 ? 0 : wrong === 1 ? 1 : 2;
   
-  rl.question(`${responses[responseIndex]} \nAntworten Sie mit y/Y, falls Sie Lust darauf haben.\n`, userInput => {
+  rl.question(`${responses[responseIndex]} \nAntworten Sie mit y/Y, falls Sie Lust darauf haben.\nSonst die enter Taste \n`, userInput => {
     if (userInput.toLowerCase() === 'y') {
       restartQuiz();
     } else {
-      console.log("Danke für die gratis Übersetzung!");
+      console.log("Danke für die gratis Übersetzungen!");
       rl.close();
     }
   });
